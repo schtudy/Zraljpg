@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jjalgongjang.pages.dev/sitemap.xml

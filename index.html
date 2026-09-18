@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>짤공장 - 눈 레이저 ○○급 짤 만들기 · 한국 밈 짤 생성기</title>
+<meta name="description" content="내 사진에 눈 레이저, 분신, 번개 이펙트, 3D 글자를 넣어 요즘 유행하는 ○○급 짤을 JPG로 만들어 줍니다. 뉴스 속보·현상수배 짤도 무료, 사진은 서버에 올라가지 않아요.">
+<meta name="keywords" content="급짤 만들기, 눈 레이저 짤, 레이저 눈 합성, 분신 짤, 짤 만들기, 밈 생성기, 짤 생성기, 예능 자막 짤, 뉴스 속보 짤, 현상수배 짤, 밈 jpg">
+<link rel="canonical" href="https://jjalgongjang.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="짤공장">
+<meta property="og:title" content="짤공장 - 내 사진으로 한국 밈 짤 만들기">
+<meta property="og:description" content="사진 한 장이면 뉴스 속보·예능 자막·현상수배 짤 완성. 무료, 가입 없음.">
+<meta property="og:url" content="https://jjalgongjang.pages.dev/">
+<meta property="og:image" content="https://jjalgongjang.pages.dev/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#3cc65a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧱</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<!-- 애드센스: 승인용 코드. ca-pub-XXXX 를 본인 ID로 바꾸고 주석 해제 -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"짤공장","url":"https://jjalgongjang.pages.dev/","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"내 사진으로 한국 밈 짤을 JPG로 만드는 무료 웹 도구"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"올린 사진이 서버에 저장되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 합성은 사용자의 브라우저 안에서만 처리되며 사진은 어떤 서버로도 전송되지 않습니다."}},
+{"@type":"Question","name":"어떤 사진을 올릴 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"JPG, PNG, WEBP, GIF(첫 장면) 형식이며 한 장당 최대 10MB까지 올릴 수 있습니다."}},
+{"@type":"Question","name":"만든 짤을 상업적으로 써도 되나요?","acceptedAnswer":{"@type":"Answer","text":"본인이 권리를 가진 사진으로 만든 결과물은 자유롭게 쓸 수 있습니다. 타인의 얼굴이나 저작물이 담긴 사진은 당사자 허락이 필요합니다."}}
+]}]}
+</script>
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="/" aria-label="짤공장 홈"><span class="logo-brick">짤</span>공장</a>
+  <nav class="nav">
+    <a href="/guide.html">사용법</a>
+    <a href="/about.html">소개</a>
+    <a href="/privacy.html">개인정보</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1 class="hero-title">내 사진으로<br>○○급 짤 굽기</h1>
+    <p class="hero-sub">눈에서 레이저, 양옆에 분신, 번개와 3D 글자까지. 요즘 도는 그 "레전드급" 포스터 짤을 내 사진으로 만들어 JPG로 저장하세요. 가입도, 설치도 없어요.</p>
+  </section>
+
+  <div class="ad-slot" aria-label="광고"><!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXX" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script> --></div>
+
+  <section class="tool" id="tool" aria-label="짤 만들기">
+    <div class="panel panel-left">
+      <h2 class="step-title"><span class="step-no">1</span>사진 넣기</h2>
+      <label class="drop" id="drop" tabindex="0">
+        <input type="file" id="file" accept="image/jpeg,image/png,image/webp,image/gif" hidden>
+        <span class="drop-icon" aria-hidden="true">📷</span>
+        <strong>여기를 눌러 사진 고르기</strong>
+        <span class="drop-hint">끌어다 놓거나 붙여넣기(Ctrl+V)도 돼요</span>
+      </label>
+      <div class="file-info" id="fileInfo" hidden>
+        <img id="thumb" alt="올린 사진 미리보기">
+        <div class="file-meta">
+          <b id="fileName">-</b>
+          <span id="fileSize">-</span>
+          <div class="quota"><div class="quota-bar" id="quotaBar"></div></div>
+          <small id="quotaText">-</small>
+        </div>
+        <button class="btn btn-ghost" id="removeBtn" type="button">빼기</button>
+      </div>
+      <p class="limit-note">JPG·PNG·WEBP·GIF / 한 장 최대 10MB / 사진은 내 폰·PC 안에서만 처리돼요</p>
+      <p class="msg" id="msg" role="alert" hidden></p>
+
+      <h2 class="step-title"><span class="step-no">2</span>짤 고르기</h2>
+      <div class="meme-grid" id="memeGrid" role="radiogroup" aria-label="짤 종류"></div>
+
+      <h2 class="step-title"><span class="step-no">3</span>꾸미기</h2>
+      <form class="fields" id="fields" autocomplete="off" onsubmit="return false"></form>
+
+      <label class="quality">화질
+        <select id="quality">
+          <option value="0.92">선명하게 (용량 큼)</option>
+          <option value="0.82" selected>보통</option>
+          <option value="0.65">가볍게 (카톡 전송용)</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="panel panel-right">
+      <div class="preview-wrap">
+        <canvas id="canvas" width="1080" height="1080" aria-label="짤 미리보기"></canvas>
+        <div class="empty" id="empty">사진을 넣으면<br>여기에 짤이 나와요</div>
+      </div>
+      <div class="progress" id="progress" hidden>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <span id="progressText">준비 중</span>
+      </div>
+      <button class="btn btn-big" id="makeBtn" type="button" disabled>JPG로 굽기</button>
+      <div class="result" id="result" hidden>
+        <a class="btn btn-green" id="downloadBtn" download>저장하기</a>
+        <button class="btn btn-blue" id="shareBtn" type="button" hidden>공유하기</button>
+        <small id="resultInfo"></small>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <h2>이렇게 만들어요</h2>
+    <ol class="howto">
+      <li><b>사진 넣기</b> 갤러리에서 사진을 고르거나 화면에 끌어다 놓으세요. 큰 사진은 자동으로 알맞게 줄여 줘요.</li>
+      <li><b>짤 고르기</b> 원하는 밈 틀을 누르면 미리보기가 바로 바뀝니다.</li>
+      <li><b>글자 바꾸기</b> 칸에 문구를 적으면 실시간으로 반영돼요. 비워 두면 기본 문구가 들어가요.</li>
+      <li><b>JPG로 굽기</b> 버튼을 누르고 진행률이 다 차면 저장하거나 바로 공유하세요.</li>
+    </ol>
+
+    <h2>지금 만들 수 있는 짤</h2>
+    <ul class="meme-list" id="memeList"></ul>
+
+    <h2>자주 묻는 질문</h2>
+    <details><summary>올린 사진이 서버에 저장되나요?</summary><p>아니요. 짤공장은 사진을 서버로 보내지 않습니다. 합성은 전부 브라우저 안의 캔버스에서 이뤄지고, 창을 닫으면 사진도 메모리에서 사라져요.</p></details>
+    <details><summary>레이저가 눈에서 안 나와요.</summary><p>AI 눈 찾기가 켜져 있으면 대부분 자동으로 맞춰집니다. 얼굴이 작거나 옆모습이면 빗나갈 수 있으니, 미리보기에서 왼눈과 오른눈을 차례로 눌러 위치를 직접 찍어 주세요.</p></details>
+    <details><summary>아이폰 HEIC 사진이 안 올라가요.</summary><p>브라우저가 HEIC를 직접 읽지 못해서 그래요. 아이폰 설정 &gt; 카메라 &gt; 포맷에서 '높은 호환성'을 고르거나, 사진을 공유할 때 JPG로 저장한 뒤 올려 주세요.</p></details>
+    <details><summary>저장 버튼을 눌러도 아무 일이 없어요.</summary><p>일부 앱 내 브라우저(카카오톡, 인스타그램)는 다운로드를 막아요. '공유하기'를 쓰거나 크롬·사파리로 열어 주세요. 미리보기 이미지를 길게 눌러 저장해도 됩니다.</p></details>
+    <details><summary>남의 사진으로 만들어도 되나요?</summary><p>친구나 연예인 사진은 당사자 허락 없이 퍼뜨리면 초상권 침해가 될 수 있어요. 내 사진이나 허락받은 사진으로 즐겨 주세요.</p></details>
+  </section>
+
+  <div class="ad-slot" aria-label="광고"></div>
+</main>
+
+<footer class="foot">
+  <nav><a href="/about.html">사이트 소개</a><a href="/guide.html">기능 안내</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a></nav>
+  <p>© 2026 짤공장. 사진은 서버에 저장되지 않습니다.</p>
+</footer>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
