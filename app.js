@@ -150,7 +150,7 @@ function values() {
 // ===== 그리기 =====
 const loadFonts = text => Promise.all(CFG.fonts.map(f => document.fonts.load(f, text || '가'))).catch(() => {});
 
-async function draw(report) {
+async function draw(report, full = true) {
   const job = ++state.job, v = values();
   await loadFonts(Object.values(v).filter(x => typeof x === 'string').join('') + '가');
   let cache = {};
@@ -162,7 +162,8 @@ async function draw(report) {
     }
   }
   if (job !== state.job) return false; // 더 최근 요청이 있으면 버림
-  const { w, h } = state.meme.size(state.img);
+  let { w, h } = state.meme.size(state.img);
+  if (!full && state.meme.heavy) { w = Math.round(w / 2); h = Math.round(h / 2); } // 무거운 짤은 미리보기만 절반 크기
   el.canvas.width = w; el.canvas.height = h;
   ctx.save(); state.meme.render(ctx, state.img, v, w, h, cache); ctx.restore();
   return true;
@@ -171,7 +172,7 @@ async function draw(report) {
 async function preview() {
   if (!state.img) return;
   el.result.hidden = true;
-  await draw((p, t) => { el.prog.hidden = false; setProg(p, t); });
+  await draw((p, t) => { el.prog.hidden = false; setProg(p, t); }, false);
   el.prog.hidden = true;
 }
 
